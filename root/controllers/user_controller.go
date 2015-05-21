@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/carrot/gcore/models"
+	"<%= package_path %>/models"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
 	"strconv"

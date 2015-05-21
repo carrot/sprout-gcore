@@ -6,6 +6,11 @@
     "test": "./node_modules/.bin/mocha"
   },
   "author": "",
+  "dependencies": {
+    "bluebird": "2.9.x",
+    "underscore.string": "~2.2.0",
+    "mkdirp": "0.5.1"
+  },
   "license": "MIT",
   "devDependencies": {
     "mocha": "2.2.x",

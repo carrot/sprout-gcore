@@ -1,5 +1,5 @@
 {
-  "name": "project x",
-  "description": "the best project that ever projected",
-  "github_username": "roideuniverse"
+  "user_id": "roideuniverse",
+  "project_name": "gcore-api",
+  "project_base_dir": "github.com"
 }
