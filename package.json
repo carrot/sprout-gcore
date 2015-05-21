@@ -1,7 +1,7 @@
 {
   "name": "sprout-gcore",
   "version": "0.0.0",
-  "description": "A sprout template for gcore.",
+  "description": "A sprout template for generating gcore api project.",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
