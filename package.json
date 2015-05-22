@@ -6,6 +6,9 @@
     "test": "./node_modules/.bin/mocha"
   },
   "author": "",
+  "dependencies": {
+    "bluebird": "2.9.x"
+  },
   "license": "MIT",
   "devDependencies": {
     "mocha": "2.2.x",
