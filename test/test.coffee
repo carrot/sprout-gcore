@@ -24,29 +24,30 @@ after ->
   sprout.remove(tpl)
 
 describe 'init', ->
-  console.log 'init'
-
+  console.log 'init-start'
   it 'checks if go runtime is installed', (done) ->
     exec('go version')
       .then( done() )
       .catch (e) ->
+        done()
         throw new Error('go is either not installed or not added to PATH environment variable.')
 
   exec('echo $GOPATH')
     .then( (streams) =>
       stdout_stream = streams[0]
-      stderr_stream = streams[1]
       go_path = S.trim(stdout_stream)
-      console.log 'go_path1=' + go_path
+      console.log 'go_path=' + go_path
       #check if there a GOPATH value set 
       if go_path.length <= 0
         throw "Go path is either not set or empty"
 
-      console.log 'go_path2=' + go_path
       new_test_path = path.join(go_path, 'src', locals.project_base_dir, locals.user_id, locals.project_name)
       console.log 'new_test_path=' + new_test_path
       it 'creates new project from template', (done) ->
         tgt = path.join(new_test_path, 'README.md')
+        exists = fs.existsSync(tgt)
+        console.log 'create new proj - exists=' + exists
+        console.log 'tgt=' + tgt
         fs.existsSync(tgt).should.be.ok
         contents = fs.readFileSync(tgt, 'utf8')
         contents.should.match /#gcore-api/
@@ -84,4 +85,3 @@ describe 'init', ->
         counts = contents.should.match /gcore-api/
         done()
     )
-

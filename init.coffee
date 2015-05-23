@@ -2,7 +2,6 @@ Promise = require 'bluebird'
 path = require 'path'
 exec = Promise.promisify(require('child_process').exec)
 fs = require 'fs'
-nconf = require('nconf');
 S = require("underscore.string");
 mkdirp = require('mkdirp');
 
