@@ -8,8 +8,9 @@
   "author": "",
   "dependencies": {
     "bluebird": "2.9.x",
-    "underscore.string": "~2.2.0",
-    "mkdirp": "0.5.1"
+    "chalk": "1.0.x",
+    "mkdirp": "0.5.1",
+    "underscore.string": "~2.2.0"
   },
   "license": "MIT",
   "devDependencies": {
