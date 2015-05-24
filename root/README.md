@@ -1,6 +1,6 @@
-#<%= project_name %>
+#<%= name %>
 
-<%= project_name %> is a super minimalist scaffolding for writing a REST API in Go.
+<%= name %> is a super minimalist scaffolding for writing a REST API in Go.
 
 ## Why should you care?
 
@@ -18,7 +18,7 @@ You'll note that included is a user model + controller.  This is simply to expre
 
 Before you start, make sure you have [gom](https://github.com/mattn/gom) installed.
 
-You will also need to set an environment variable named `PORT` to the port you would like <%= project_name %> to run on.
+You will also need to set an environment variable named `PORT` to the port you would like <%= name %> to run on.
 
 After that, run these commands:
 
@@ -29,10 +29,10 @@ gom install
 gom build
 ```
 
-Now <%= project_name %> should be ready to run, so just run:
+Now <%= name %> should be ready to run, so just run:
 
 ```sh
-./<%= project_name %>
+./<%= name %>
 ```
 
 Head over to `http://localhost:$PORT/users/1` in a browser.  If you get a 200 response, you're all set up.
