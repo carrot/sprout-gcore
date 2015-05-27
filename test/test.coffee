@@ -3,7 +3,6 @@ path   = require 'path'
 fs     = require 'fs'
 Promise = require 'bluebird'
 exec = Promise.promisify(require('child_process').exec)
-S = require("underscore.string");
 locals = require './fixtures/locals'
 rmdir = require('rimraf');
 
@@ -31,9 +30,7 @@ before ->
 
 after ->
   sprout.remove(tpl)
-  if go_path.length > 0
-    if fs.existsSync(temp_test_path) is on
-      rmdir.sync temp_test_path
+  rimraf.sync temp_test_path
 
 describe 'init', ->
   it 'creates new project from template', (done) ->
