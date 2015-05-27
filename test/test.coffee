@@ -4,7 +4,6 @@ fs     = require 'fs'
 Promise = require 'bluebird'
 exec = Promise.promisify(require('child_process').exec)
 locals = require './fixtures/locals'
-rmdir = require('rimraf');
 
 test_template_path = path.resolve(_path, '../../')
 test_path          = path.join(__dirname, 'tmp')
@@ -39,6 +38,7 @@ describe 'init', ->
     fs.existsSync(tgt).should.be.ok
     contents = fs.readFileSync(tgt, 'utf8')
     contents.should.match /#gcore-api/
+    contents.should.match /go\sget\sgithub.com\/roideuniverse\/gcore-api/
     done()
 
   it 'matches model in user_controller.go', (done) ->
@@ -54,20 +54,4 @@ describe 'init', ->
     fs.existsSync(tgt).should.be.ok
     contents = fs.readFileSync(tgt, 'utf8')
     counts = contents.should.match /.*"github.com\/roideuniverse\/gcore-api\/controllers".*/
-    done()
-
-  #matched package_path in readme
-  it 'matched package path in the readme', (done) ->
-    tgt = path.join(temp_test_path, 'README.md')
-    fs.existsSync(tgt).should.be.ok
-    contents = fs.readFileSync(tgt, 'utf8')
-    counts = contents.should.match /go\sget\sgithub.com\/roideuniverse\/gcore-api/
-    done()
-
-  #matched project_name in readme
-  it 'matched project_name in the readme', (done) ->
-    tgt = path.join(temp_test_path, 'README.md')
-    fs.existsSync(tgt).should.be.ok
-    contents = fs.readFileSync(tgt, 'utf8')
-    counts = contents.should.match /gcore-api/
     done()
