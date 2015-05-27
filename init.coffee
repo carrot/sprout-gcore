@@ -2,7 +2,7 @@ Promise = require 'bluebird'
 path = require 'path'
 exec = Promise.promisify(require('child_process').exec)
 fs = require 'fs'
-mkdirp = require('mkdirp');
+mkdirp = require 'mkdirp'
 
 exports.configure = [
   {
@@ -26,8 +26,8 @@ exports.before = (utils) ->
   _check_go_installed()
 
 exports.beforeRender = (utils, config) ->
-  package_name = path.join(config.project_base_dir, config.user_id, config.project_name)
-  config.package_path = package_name
+  pkg = path.join(config.project_base_dir, config.user_id, config.project_name)
+  config.package_path = pkg
 
   _get_go_path()
     .then (go_path) ->
@@ -36,7 +36,7 @@ exports.beforeRender = (utils, config) ->
       config.dest = path.join(config.go_path, 'src', config.package_path)
       if fs.existsSync(config.dest) is on
         strMessage = 'Already exists: ' + config.dest
-        Promise.reject(new Error(strMessage));
+        Promise.reject(new Error(strMessage))
 
 
 exports.after = (utils, config) ->
